@@ -116,6 +116,7 @@ const VideoCarousel = () => {
   }, [videoId, startPlay]);
 
   useEffect(() => {
+    // Ensures at least 4 videos have their metadata loaded before proceeding. Prevents attempting to play or pause videos that are not yet ready.
     if (loadedData.length > 3) {
       if (!isPlaying) {
         videoRef.current[videoId].pause();
